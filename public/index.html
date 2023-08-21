@@ -5,7 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Turnstile test</title>
     <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
-    <script defer>
+    
+  </head>
+  <body>
+    <h1>Turnstile Test</h1>
+    <form id="test" action="#" method="post">
+      <label for="name">Name (test)</label>
+      <input id="name" type="text" name="name" required placeholder="John Tanaka" />
+      <div id="tf"></div>
+      <input type="submit" value="Submit">
+    </form>
+    <br>
+    <a href="https://github.com/waki285/Turnstile-test">Source Code</a> 
+    <script async defer>
       const keys = {
         managed: "0x4AAAAAAAA1WzHSsbGWTH88",
         noninteractive: "0x4AAAAAAAJCais5gv4TSSTB",
@@ -22,16 +34,5 @@
       hidden.value = type || "managed";
       document.getElementById("tf").appendChild(hidden);
     </script>
-  </head>
-  <body>
-    <h1>Turnstile Test</h1>
-    <form id="test" action="#" method="post">
-      <label for="name">Name (test)</label>
-      <input id="name" type="text" name="name" required placeholder="John Tanaka" />
-      <div id="tf"></div>
-      <input type="submit" value="Submit">
-    </form>
-    <br>
-    <a href="https://github.com/waki285/Turnstile-test">Source Code</a> 
   </body>
 </html>
