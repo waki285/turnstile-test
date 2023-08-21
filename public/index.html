@@ -5,13 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Turnstile test</title>
     <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+    <script defer>
+      const keys = {
+        managed: "0x4AAAAAAAA1WzHSsbGWTH88",
+        noninteractive: "0x4AAAAAAAJCais5gv4TSSTB",
+        invisible: "0x4AAAAAAAJCa4QZ-A70ZyXL"
+      }
+      const div = document.createElement("div");
+      div.classList.add("cf-turnstile");
+      const type = new URL(location.href).searchParams.get("type");
+      div.dataset.sitekey = type ? (keys[type.toLowerCase()] || "managed"):"managed";
+      document.getElementById("tf").appendChild(div);
+      const hidden = document.createElement("input");
+      hidden.type = "hidden";
+      hidden.name = "type";
+      hidden.value = type || "managed";
+      document.getElementById("tf").appendChild(hidden);
+    </script>
   </head>
   <body>
     <h1>Turnstile Test</h1>
     <form id="test" action="#" method="post">
       <label for="name">Name (test)</label>
       <input id="name" type="text" name="name" required placeholder="John Tanaka" />
-      <div class="cf-turnstile" data-sitekey="0x4AAAAAAAA1WzHSsbGWTH88"></div>
+      <div id="tf"></div>
       <input type="submit" value="Submit">
     </form>
     <br>
